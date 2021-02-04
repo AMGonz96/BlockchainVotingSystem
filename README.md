@@ -1,1 +1,7 @@
-# BlockchainVoting
+# This project involved a Series of smart contracts that work in unison to register voters, create elections, and allow registered voters to vote then validate the results. All written in solidity and deployable on the ethereum blockchain network. While many voting platforms have been developed with solidity in the past, few utilise a multi-contract system that allow users to vote via a contract verifying their identity through a unique crypto phrase key that is stored securely on the blockchain at time of registration. Additionally this project utilises a smart contract for the storage of votes on the blockchain to allow for election authorities to audit vote outcomes.
+
+The Register contract is where voters register using their blockchain address and a crypto phrase like one generated using https://www.fourmilab.ch/javascrypt/pass_phrase.html. From this contract users can also view their crypto phase key. 
+
+The Ballot contract is deployed by the election authority, at construction the authority adds the voting proposals, the candidates and the end time of the election. Once deployed voters can view the election/candidates as well as  vote once in the election. Then once the election ends anyone can view the results that are verified in the contract at election close. 
+
+The VotingDB contract is used to store votes from the Ballot contract on the blockchain where voting authorities can query this voting data based on the block address of the ballot contract, by a users crypto phrase or by a users address. 
